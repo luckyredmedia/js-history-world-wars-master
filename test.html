@@ -1,0 +1,69 @@
+<html>
+	<script type="text/javascript" src="http://canvg.googlecode.com/svn/trunk/rgbcolor.js"></script> 
+	<script type="text/javascript" src="http://canvg.googlecode.com/svn/trunk/StackBlur.js"></script>
+	<script type="text/javascript" src="http://canvg.googlecode.com/svn/trunk/canvg.js"></script> 
+
+	<script type="text/javascript" src="libs/svgtodata/base64.js"></script> 
+	<script type="text/javascript" src="libs/svgtodata/svg_todataurl.js"></script>
+
+<body>
+
+
+	
+	<div id="myDiv" width="1000" height="500" > </div>
+
+	<canvas id="canvas" width="1000" height="500" />
+
+</body>
+
+
+<script type="text/javascript">
+
+var canvas = document.getElementById('canvas'),
+ctx = canvas.getContext('2d');
+
+var ni = document.getElementById('myDiv');
+
+var can = document.getElementById('canvas');
+	
+// var obj = document.createElement('object');
+// obj.data = "images/Africa.svg";
+// obj.type="image/svg+xml";
+// obj.width = 400;
+// obj.height = 400;
+// ni.appendChild(obj);
+
+
+
+//var so = (new XMLSerializer()).serializeToString(obj.data);
+
+
+var img = new Image();
+img.onload = function(){
+	this.width = 400;
+	this.height = 400;
+    ctx.drawImage(this, 0, 0, 400, 400);
+  }
+img.src = "images/Africa.svg";
+
+//ni.appendChild(img);
+
+//console.log(so);
+
+//importSVG(obj, can);
+
+function importSVG(sourceSVG, targetCanvas) 
+{
+    var svg = document.getElementById("svg");
+	var img = new Image();
+
+	svg.toDataURL("image/png", {
+		callback: function(data) {
+			img.setAttribute("src", data);						
+		}
+	})
+}
+
+</script>
+
+</html>
