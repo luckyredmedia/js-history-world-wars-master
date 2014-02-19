@@ -1,4 +1,3 @@
-js-history-world-ww2
-====================
+js-history-world-wars
 
 history of the world wars
